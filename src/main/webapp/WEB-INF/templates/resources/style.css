@@ -1,0 +1,28 @@
+.wrapper {
+    margin: 30px auto;
+}
+
+.displayQuiz, .displayForm {
+    border: 0.75px solid #000;
+    border-radius: 4px;
+    padding: 30px;
+}
+
+span {
+    margin-left: 20px;
+}
+
+button {
+    margin: 20px;
+    padding: 8px 15px;
+    border: 0.75px solid #000;
+    border-radius: 4px;
+    background: grey;
+}
+
+input {
+    padding: 8px 15px;
+    border: 0.75px solid #000;
+    border-radius: 4px;
+    background: transparent;
+}

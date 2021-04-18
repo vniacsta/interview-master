@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Back Office | Interview Master</title>
+    <link rel="stylesheet" th:href="@{/resources/style.css}" />
+</head>
+
+<body>
+<div class="wrapper">
+    <h1>Interview Master</h1>
+    <h3>Back Office</h3>
+    <div class="displayForm">
+        <form th:object="${quiz}" th:action="@{'/'}" method="post">
+            <input type="hidden" th:field="*{id}"/>
+
+            <label>Question:</label>
+            <div>
+                <input type="text" th:field="*{question}"/>
+                <span th:if="${#fields.hasErrors('question')}" th:errors="*{question}"></span>
+            </div>
+
+            <label>Multiple Choice:</label>
+            <div>
+                <input type="text" th:field="*{answer}"/>
+                <span th:if="${#fields.hasErrors('answer')}" th:errors="*{answer}"></span>
+                <input type="text" th:field="*{correct}">
+                <span th:if="${#fields.hasErrors('correct')}" th:errors="*{correct}"></span>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>
