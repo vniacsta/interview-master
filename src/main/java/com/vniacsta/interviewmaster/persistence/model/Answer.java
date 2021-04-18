@@ -7,11 +7,20 @@ import javax.persistence.*;
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public class Answer extends AbstractModel {
 
+    private String answer;
     private boolean correct = false;
 
     @ManyToOne
     private Question question;
 
+
+    public String getAnswer() {
+        return answer;
+    }
+
+    public void setAnswer(String answer) {
+        this.answer = answer;
+    }
 
     public boolean isCorrect() {
         return correct;
