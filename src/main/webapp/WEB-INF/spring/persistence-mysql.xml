@@ -11,7 +11,7 @@
     <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
 
         <property name="driverClass" value="com.mysql.cj.jdbc.Driver"/>
-        <property name="jdbcUrl" value="jdbc:mysql://localhost:8080/interviewmaster?useSSL=false"/>
+        <property name="jdbcUrl" value="jdbc:mysql://localhost:8080/interviewmaster?useSSL=false&amp;serverTimezone=UTC"/>
         <property name="user" value="vania"/>
         <property name="password" value="vania"/>
 
@@ -40,7 +40,7 @@
             <map>
                 <entry key="hibernate.show_sql" value="false" />
                 <entry key="hibernate.dialect" value="org.hibernate.dialect.MySQL8Dialect"/>
-                <entry key="hibernate.hbm2ddl.auto" value="update"/>
+                <entry key="hibernate.hbm2ddl.auto" value="create"/>
             </map>
         </property>
     </bean>
