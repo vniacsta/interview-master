@@ -57,43 +57,42 @@ public class BackOfficeController {
     }
 
 
-    // get request to show list of questions and answers available in the DB
-    @RequestMapping(method = RequestMethod.GET, path = "/")
+    // get request to show list of questions available in the DB
+    @RequestMapping(method = RequestMethod.GET, path = {"/", ""})
     public String listQuestions(Model model) {
-        model.addAttribute("quiz", questionToQuestionDto.convert((Question) questionService.list()));
-//        model.addAttribute("quiz", answerToAnswerDto.convert(answerService.list()));
+        model.addAttribute("question", questionToQuestionDto.convert(questionService.list()));
         return "index";
     }
 
     // get request to add a new question
-    @RequestMapping(method = RequestMethod.GET, path = "/add")
-    public String addQuestion(Model model) {
-        model.addAttribute("question", new QuestionDto());
-        model.addAttribute("answer", new AnswerDto());
-        return "add-edit";
-    }
+//    @RequestMapping(method = RequestMethod.GET, path = "/add")
+//    public String addQuestion(Model model) {
+//        model.addAttribute("question", new QuestionDto());
+//        model.addAttribute("answer", new AnswerDto());
+//        return "add-edit";
+//    }
 
     // get request to edit a question
-    @RequestMapping(method = RequestMethod.GET, path = "/{id}/edit")
-    public String editQuestion(@PathVariable Integer id, Model model) {
-        model.addAttribute("question", questionToQuestionDto.convert(questionService.get(id)));
-        model.addAttribute("answer", answerToAnswerDto.convert((Answer) answerService.list(id)));
-//        model.addAttribute("correct", answerToAnswerDto.convert((Answer) answerService.isCorrect()));
-        return "add-edit";
-    }
+//    @RequestMapping(method = RequestMethod.GET, path = "/{id}/edit")
+//    public String editQuestion(@PathVariable Integer id, Model model) {
+//        model.addAttribute("question", questionToQuestionDto.convert(questionService.get(id)));
+//        model.addAttribute("answer", answerToAnswerDto.convert((Answer) answerService.list(id)));
+////        model.addAttribute("correct", answerToAnswerDto.convert((Answer) answerService.isCorrect()));
+//        return "add-edit";
+//    }
 
     // post request to save a question and answers
-    @RequestMapping(method = RequestMethod.POST, path = "/")
-    public String save(@Valid @ModelAttribute("question") QuestionDto questionDto, BindingResult bindingResultQ,
-                       @Valid @ModelAttribute("answer") AnswerDto answerDto, BindingResult bindingResultA) {
-
-        if (bindingResultQ.hasErrors() || bindingResultA.hasErrors()) {
-            return "add-edit";
-        }
-
-        Question savedQuestion = questionService.save(questionDtoToQuestion.convert(questionDto));
-        questionService.addAnswer(savedQuestion.getId(), answerDtoToAnswer.convert(answerDto));
-        return "redirect:/index";
-    }
+//    @RequestMapping(method = RequestMethod.POST, path = "/")
+//    public String save(@Valid @ModelAttribute("question") QuestionDto questionDto, BindingResult bindingResultQ,
+//                       @Valid @ModelAttribute("answer") AnswerDto answerDto, BindingResult bindingResultA) {
+//
+//        if (bindingResultQ.hasErrors() || bindingResultA.hasErrors()) {
+//            return "add-edit";
+//        }
+//
+//        Question savedQuestion = questionService.save(questionDtoToQuestion.convert(questionDto));
+//        questionService.addAnswer(savedQuestion.getId(), answerDtoToAnswer.convert(answerDto));
+//        return "redirect:/index";
+//    }
 
 }

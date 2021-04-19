@@ -13,16 +13,21 @@
     <h1>Interview Master</h1>
     <h3>Back Office</h3>
     <div class="displayQuiz">
-        <div th:each="q : ${quiz}">
-            <p class="question" th:text="${q.question}"></p>
-            <ul class="answers">
-                <li th:text="${q.answer}">
-                    <span th:text="${q.correct}"></span>
-                </li>
-            </ul>
-        </div>
+        <table th:each="q : ${question}">
+            <tr>
+                <td class="question" th:text="${q.question}"></td>
+                <td><button th:href="@{/{id}(id=${q.id})}">Show answers</button></td>
+            </tr>
+        </table>
     </div>
     <button th:href="@{/add}">New Question</button>
 </div>
+
+<!--<ul class="answers">-->
+<!--    <li th:text="${q.answer}">-->
+<!--        <span th:text="${q.correct}"></span>-->
+<!--    </li>-->
+<!--</ul>-->
+
 </body>
 </html>

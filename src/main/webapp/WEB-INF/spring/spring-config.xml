@@ -22,9 +22,8 @@
     <!-- to add external files as css  -->
     <mvc:resources mapping="/resources/**" location="/WEB-INF/templates/resources/" />
 
-
-<!--    <import resource="persistence-mysql.xml"/>-->
-    <import resource="persistence-postgres.xml"/>
+    <import resource="persistence-mysql.xml"/>
+<!--    <import resource="persistence-postgres.xml"/>-->
     <import resource="presentation.xml"/>
 
 </beans>

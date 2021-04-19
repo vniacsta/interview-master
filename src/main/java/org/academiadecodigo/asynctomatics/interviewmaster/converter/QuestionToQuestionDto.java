@@ -5,7 +5,7 @@ import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
 
 @Component
-public class QuestionToQuestionDto implements Converter<Question, QuestionDto> {
+public class QuestionToQuestionDto extends AbstractConverter<Question, QuestionDto> {
 
     @Override
     public QuestionDto convert(Question question) {

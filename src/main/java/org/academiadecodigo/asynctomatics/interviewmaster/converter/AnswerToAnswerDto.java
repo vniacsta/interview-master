@@ -5,7 +5,7 @@ import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
 
 @Component
-public class AnswerToAnswerDto implements Converter<Answer, AnswerDto> {
+public class AnswerToAnswerDto extends AbstractConverter<Answer, AnswerDto> {
 
     @Override
     public AnswerDto convert(Answer answer) {

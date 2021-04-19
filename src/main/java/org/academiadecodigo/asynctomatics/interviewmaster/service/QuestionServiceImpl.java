@@ -31,7 +31,6 @@ public class QuestionServiceImpl implements QuestionService {
         return questionDao.findById(id);
     }
 
-
     @Transactional
     @Override
     public Question save(Question question) {
