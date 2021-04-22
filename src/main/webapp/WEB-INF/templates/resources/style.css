@@ -1,8 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    width: 100%;
+}
+
 .wrapper {
     display: block;
-    margin: 50px auto;
+    margin: 30px auto;
     max-width: 800px;
-    font-family: Calibri, serif;
+    font-family: 'Open Sans', sans-serif;
 }
 
 .displayQuiz, .displayForm {
@@ -14,13 +25,14 @@ span {
 }
 
 button {
-    font-family: Calibri, serif;
+    font-family: 'Open Sans', sans-serif;
     margin-top: 40px;
     padding: 8px 15px;
     border: none;
     outline: none;
     border-radius: 4px;
     background: #ff8732;
+    width: 150px;
     transition: 0.3s ease-in-out;
 }
 
@@ -36,15 +48,16 @@ button:focus {
 }
 
 input {
-    font-family: Calibri, serif;
+    font-family: 'Open Sans', sans-serif;
     padding: 8px 15px;
     border: 0.75px solid #000;
     border-radius: 4px;
     background: transparent;
-    width: 700px;
-    margin: 15px 0;
+    width: 100%;
+    margin-top: 8px;
 }
 
 .correct {
     width: 70px !important;
+    margin-bottom: 8px;
 }

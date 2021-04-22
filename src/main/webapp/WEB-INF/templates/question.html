@@ -9,9 +9,10 @@
 </head>
 
 <body>
+<img th:src="@{/resources/asynctomatics-banner.PNG}" alt="logo">
 <div class="wrapper">
     <h1>Interview Master</h1>
-    <h3>Back Office</h3>
+    <h2>Back Office</h2>
     <div class="displayForm">
         <form th:object="${question}">
             <input type="hidden" th:field="*{id}"/>
@@ -26,10 +27,39 @@
 
     <div class="displayForm">
         <form th:object="${answer}" th:action="@{'/'}" method="post">
-            <label>Multiple Choice:</label>
+            <label>Answer 1:</label>
             <div>
                 <input type="text" th:field="*{answer}"/>
                 <span th:if="${#fields.hasErrors('answer')}" th:errors="*{answer}"></span>
+                <br>
+                <label>Is this the correct answer?</label>
+                <input class="correct" type="text" th:field="*{correct}">
+                <span th:if="${#fields.hasErrors('correct')}" th:errors="*{correct}"></span>
+            </div>
+            <label>Answer 2:</label>
+            <div>
+                <input type="text" th:field="*{answer}"/>
+                <span th:if="${#fields.hasErrors('answer')}" th:errors="*{answer}"></span>
+                <br>
+                <label>Is this the correct answer?</label>
+                <input class="correct" type="text" th:field="*{correct}">
+                <span th:if="${#fields.hasErrors('correct')}" th:errors="*{correct}"></span>
+            </div>
+            <label>Answer 3:</label>
+            <div>
+                <input type="text" th:field="*{answer}"/>
+                <span th:if="${#fields.hasErrors('answer')}" th:errors="*{answer}"></span>
+                <br>
+                <label>Is this the correct answer?</label>
+                <input class="correct" type="text" th:field="*{correct}">
+                <span th:if="${#fields.hasErrors('correct')}" th:errors="*{correct}"></span>
+            </div>
+            <label>Answer 4:</label>
+            <div>
+                <input type="text" th:field="*{answer}"/>
+                <span th:if="${#fields.hasErrors('answer')}" th:errors="*{answer}"></span>
+                <br>
+                <label>Is this the correct answer?</label>
                 <input class="correct" type="text" th:field="*{correct}">
                 <span th:if="${#fields.hasErrors('correct')}" th:errors="*{correct}"></span>
             </div>
