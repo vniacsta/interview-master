@@ -1,7 +1,6 @@
 package org.academiadecodigo.asynctomatics.interviewmaster.controller.web;
 
 import org.academiadecodigo.asynctomatics.interviewmaster.converter.*;
-import org.academiadecodigo.asynctomatics.interviewmaster.persistence.model.Answer;
 import org.academiadecodigo.asynctomatics.interviewmaster.persistence.model.Question;
 import org.academiadecodigo.asynctomatics.interviewmaster.service.AnswerService;
 import org.academiadecodigo.asynctomatics.interviewmaster.service.QuestionService;
@@ -65,34 +64,36 @@ public class BackOfficeController {
     }
 
     // get request to add a new question
-//    @RequestMapping(method = RequestMethod.GET, path = "/add")
-//    public String addQuestion(Model model) {
-//        model.addAttribute("question", new QuestionDto());
-//        model.addAttribute("answer", new AnswerDto());
-//        return "add-edit";
-//    }
+    @RequestMapping(method = RequestMethod.GET, path = "/question")
+    public String addQuestion(Model model) {
+        model.addAttribute("question", new QuestionDto());
+        model.addAttribute("answer", new AnswerDto());
+        return "question";
+    }
 
     // get request to edit a question
-//    @RequestMapping(method = RequestMethod.GET, path = "/{id}/edit")
-//    public String editQuestion(@PathVariable Integer id, Model model) {
-//        model.addAttribute("question", questionToQuestionDto.convert(questionService.get(id)));
-//        model.addAttribute("answer", answerToAnswerDto.convert((Answer) answerService.list(id)));
-////        model.addAttribute("correct", answerToAnswerDto.convert((Answer) answerService.isCorrect()));
-//        return "add-edit";
-//    }
+    @RequestMapping(method = RequestMethod.GET, path = "/{id}/edit")
+    public String editQuestion(@PathVariable Integer id, Model model) {
+        model.addAttribute("question", questionToQuestionDto.convert(questionService.get(id)));
+        model.addAttribute("answer", answerToAnswerDto.convert(answerService.list(id)));
+//        model.addAttribute("correct", answerToAnswerDto.convert(answerService.isCorrect()));
+        return "question";
+    }
 
     // post request to save a question and answers
-//    @RequestMapping(method = RequestMethod.POST, path = "/")
-//    public String save(@Valid @ModelAttribute("question") QuestionDto questionDto, BindingResult bindingResultQ,
-//                       @Valid @ModelAttribute("answer") AnswerDto answerDto, BindingResult bindingResultA) {
-//
-//        if (bindingResultQ.hasErrors() || bindingResultA.hasErrors()) {
-//            return "add-edit";
-//        }
-//
-//        Question savedQuestion = questionService.save(questionDtoToQuestion.convert(questionDto));
-//        questionService.addAnswer(savedQuestion.getId(), answerDtoToAnswer.convert(answerDto));
-//        return "redirect:/index";
-//    }
+    @RequestMapping(method = RequestMethod.POST, path = "/question", params = "action=save")
+    public String save(@Valid @ModelAttribute("question") QuestionDto questionDto, BindingResult bindingResultQ,
+                       @Valid @ModelAttribute("answer") AnswerDto answerDto, BindingResult bindingResultA) {
+
+        if (bindingResultQ.hasErrors() || bindingResultA.hasErrors()) {
+            return "question";
+        }
+
+        Question savedQuestion = questionService.save(questionDtoToQuestion.convert(questionDto));
+        questionService.addAnswer(savedQuestion.getId(), answerDtoToAnswer.convert(answerDto));
+        return "redirect:/index";
+    }
+
+
 
 }

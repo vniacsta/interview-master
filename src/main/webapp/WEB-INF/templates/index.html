@@ -11,23 +11,17 @@
 <body>
 <div class="wrapper">
     <h1>Interview Master</h1>
-    <h3>Back Office</h3>
+    <h2>Back Office</h2>
     <div class="displayQuiz">
         <table th:each="q : ${question}">
             <tr>
                 <td class="question" th:text="${q.question}"></td>
-                <td><button th:href="@{/{id}(id=${q.id})}">Show answers</button></td>
+                <td><button th:href="@{/{id}(id=${q.id})}">Show Answers</button></td>
             </tr>
         </table>
     </div>
-    <button th:href="@{/add}">New Question</button>
+    <a th:href="@{/question}"><button>New Question</button></a>
 </div>
-
-<!--<ul class="answers">-->
-<!--    <li th:text="${q.answer}">-->
-<!--        <span th:text="${q.correct}"></span>-->
-<!--    </li>-->
-<!--</ul>-->
 
 </body>
 </html>
